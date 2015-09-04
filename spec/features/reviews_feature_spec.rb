@@ -61,9 +61,29 @@ feature 'reviewing' do
     expect(page).to have_content('Average rating: ★★★★☆')
   end
 
+  #in the tutorial, these tests are unit tests on the ReviewsHelper - maybe should be like this instead?
   scenario 'displays N/A if no ratings' do
     visit '/restaurants'
     expect(page).to have_content('Average rating: N/A')
+  end
+
+  scenario 'displays an average rating of 3 stars' do
+    leave_review('So so', '3')
+    expect(page).to have_content('Average rating: ★★★☆☆')
+  end
+
+  scenario 'displays an average rating of 5 stars' do
+    leave_review('Great', '5')
+    expect(page).to have_content('Average rating: ★★★★★')
+  end
+
+  scenario 'displays an average rating for a decimal average' do
+    leave_review('So so', '3')
+    click_link 'Sign out'
+    userina = build(:userina)
+    sign_up(userina)
+    leave_review('Great', '4')
+    expect(page).to have_content('Average rating: ★★★★☆')
   end
 end
 

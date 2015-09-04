@@ -12,23 +12,23 @@ class Restaurant < ActiveRecord::Base
 
   def average_rating
     return 'N/A' if self.reviews.none?
-    self.reviews.average(:rating).to_i
+    self.reviews.average(:rating).round
   end
 
-  def star_rating(rating)
-    return rating unless rating.is_a?(Integer)
-    return black_stars + white_stars
-  end
+  # def star_rating(rating)
+  #   return rating unless rating.is_a?(Integer)
+  #   return black_stars + white_stars
+  # end
 
-  def black_stars
-    black_stars = ''
-    average_rating.to_i.times{ black_stars += "★" }
-    return black_stars
-  end
+  # def black_stars
+  #   black_stars = ''
+  #   average_rating.to_i.times{ black_stars += "★" }
+  #   return black_stars
+  # end
 
-  def white_stars
-    white_stars = ''
-    (5 - self.average_rating.to_i).times{ white_stars += "☆" }
-    return white_stars
-  end
+  # def white_stars
+  #   white_stars = ''
+  #   (5 - self.average_rating.to_i).times{ white_stars += "☆" }
+  #   return white_stars
+  # end
 end

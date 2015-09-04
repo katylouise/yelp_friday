@@ -2387,3 +2387,278 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+
+
+Started GET "/restaurants" for ::1 at 2015-09-04 18:07:48 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RestaurantsController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "restaurants"
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[35mReview Load (0.6ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 2]]
+  [1m[36m (0.3ms)[0m  [1mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 2]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 4]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 7]]
+  [1m[35mReview Load (0.4ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 1]]
+  [1m[36m (4.8ms)[0m  [1mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 8]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 4]]
+  [1m[36m (0.4ms)[0m  [1mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 4]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 6]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 9]]
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 5]]
+  Rendered restaurants/index.html.haml within layouts/application (180.4ms)
+Completed 200 OK in 847ms (Views: 807.4ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/assets/endorsements.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-04 18:07:49 +0100
+
+
+Started GET "/assets/endorsements.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-04 18:07:49 +0100
+
+
+Started GET "/assets/reviews.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-09-04 18:07:50 +0100
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-09-04 18:07:50 +0100
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-09-04 18:07:50 +0100
+
+
+Started GET "/assets/restaurants.self-800f43eb8f4b5652f3c5017ffda37c0e74079c8ff8052960fb67d209b6cd4a1d.css?body=1" for ::1 at 2015-09-04 18:07:50 +0100
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-09-04 18:07:50 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-09-04 18:07:50 +0100
+
+
+Started GET "/assets/reviews.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-04 18:07:50 +0100
+
+
+Started GET "/assets/restaurants.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-09-04 18:07:50 +0100
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-09-04 18:07:50 +0100
+
+
+Started POST "/reviews/2/endorsements" for ::1 at 2015-09-04 18:07:52 +0100
+Processing by EndorsementsController#create as HTML
+  Parameters: {"authenticity_token"=>"sIJBGfna6uQokqvbsGNsEqwhQPGOxrUAPyqm6hgOX+JNLyNWpvuaeutuuJbk2d/i0DAtwskjg2qAwJz9iqfBJA==", "review_id"=>"2"}
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "endorsements" ("review_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["review_id", 2], ["created_at", "2015-09-04 17:07:52.508495"], ["updated_at", "2015-09-04 17:07:52.508495"]]
+  [1m[35m (6.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/restaurants
+Completed 302 Found in 31ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-09-04 18:07:52 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "restaurants"[0m
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  [1m[35m (0.4ms)[0m  SELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 2]]
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 4]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 7]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 1]]
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 5]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 8]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 3]]
+  [1m[36mReview Load (2.8ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 4]]
+  [1m[35m (0.3ms)[0m  SELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 4]]
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 6]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 9]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 5]]
+  Rendered restaurants/index.html.haml within layouts/application (40.8ms)
+Completed 200 OK in 99ms (Views: 88.8ms | ActiveRecord: 9.5ms)
+
+
+Started POST "/reviews/4/endorsements" for ::1 at 2015-09-04 18:07:54 +0100
+Processing by EndorsementsController#create as HTML
+  Parameters: {"authenticity_token"=>"awarrqw1GGdFzq5jPQ5vPBSyBYE9qZo3cGEpu9oQsBOWq8nh8xRo+YYyvS5ptNzMaKNosnpMrF3PixOsSLku1Q==", "review_id"=>"4"}
+  [1m[35mReview Load (0.3ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "endorsements" ("review_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["review_id", 4], ["created_at", "2015-09-04 17:07:54.139205"], ["updated_at", "2015-09-04 17:07:54.139205"]]
+  [1m[36m (8.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants
+Completed 302 Found in 15ms (ActiveRecord: 9.4ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-09-04 18:07:54 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "restaurants"
+  [1m[36mRestaurant Load (0.5ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[35mReview Load (10.9ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 4]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 7]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 8]]
+  [1m[36mReview Load (0.1ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 4]]
+  [1m[36m (0.2ms)[0m  [1mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 4]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 6]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 9]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 5]]
+  Rendered restaurants/index.html.haml within layouts/application (44.0ms)
+Completed 200 OK in 105ms (Views: 89.7ms | ActiveRecord: 14.5ms)
+
+
+Started POST "/reviews/4/endorsements" for ::1 at 2015-09-04 18:07:55 +0100
+Processing by EndorsementsController#create as HTML
+  Parameters: {"authenticity_token"=>"dxoEKoPhTzHiJZHnXXDCytT1SmCloDmXXq6y3cDJuaOKt2Zl3MA/ryHZgqoJynE6qOQnU+JFD/3hRIjKUmAnZQ==", "review_id"=>"4"}
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "endorsements" ("review_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["review_id", 4], ["created_at", "2015-09-04 17:07:55.023206"], ["updated_at", "2015-09-04 17:07:55.023206"]]
+  [1m[35m (8.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/restaurants
+Completed 302 Found in 13ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-09-04 18:07:55 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "restaurants"[0m
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  [1m[36mReview Load (0.1ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 2]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 4]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 7]]
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 1]]
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 8]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 3]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 4]]
+  [1m[35m (0.2ms)[0m  SELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 4]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 6]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 9]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 5]]
+  Rendered restaurants/index.html.haml within layouts/application (32.9ms)
+Completed 200 OK in 93ms (Views: 88.1ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/reviews/4/endorsements" for ::1 at 2015-09-04 18:07:56 +0100
+Processing by EndorsementsController#create as HTML
+  Parameters: {"authenticity_token"=>"Hcz2pM4CwftaHVLX3LRrqHdI7SEks2lYkI5xlqh1HgbgYZTrkSOxZZnhQZqIDthYC1mAEmNWXzIvZEuBOtyAwA==", "review_id"=>"4"}
+  [1m[35mReview Load (0.2ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "endorsements" ("review_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["review_id", 4], ["created_at", "2015-09-04 17:07:56.119752"], ["updated_at", "2015-09-04 17:07:56.119752"]]
+  [1m[36m (8.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants
+Completed 302 Found in 14ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-09-04 18:07:56 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "restaurants"
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 4]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 7]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 8]]
+  [1m[36mReview Load (0.1ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 4]]
+  [1m[36m (0.1ms)[0m  [1mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 4]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 9]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 5]]
+  Rendered restaurants/index.html.haml within layouts/application (29.7ms)
+Completed 200 OK in 109ms (Views: 105.4ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/reviews/4/endorsements" for ::1 at 2015-09-04 18:07:56 +0100
+Processing by EndorsementsController#create as HTML
+  Parameters: {"authenticity_token"=>"QyL9Ly/0yHdYyX5I6D+1W1MiYMyxgysgNN+vdoYQ4Im+j59gcNW46Zs1bQW8hQarLzMN//ZmHUqLNZVhFLl+Tw==", "review_id"=>"4"}
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "endorsements" ("review_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["review_id", 4], ["created_at", "2015-09-04 17:07:56.944231"], ["updated_at", "2015-09-04 17:07:56.944231"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/restaurants
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-09-04 18:07:56 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "restaurants"[0m
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT "restaurants".* FROM "restaurants"
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  [1m[35m (0.4ms)[0m  SELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 2]]
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 4]]
+  [1m[35m (2.4ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 7]]
+  [1m[36mReview Load (0.6ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 8]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 3]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 4]]
+  [1m[35m (0.2ms)[0m  SELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 4]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 6]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 9]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 5]]
+  Rendered restaurants/index.html.haml within layouts/application (41.1ms)
+Completed 200 OK in 108ms (Views: 99.4ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/reviews/4/endorsements" for ::1 at 2015-09-04 18:07:57 +0100
+Processing by EndorsementsController#create as HTML
+  Parameters: {"authenticity_token"=>"wAZKs747nx2/qVtOHq65wa96c5CHTUFWNCv26V23Il49qyj84Rrvg3xVSANKFAox02seo8CodzyLwcz+zx68mA==", "review_id"=>"4"}
+  [1m[35mReview Load (0.4ms)[0m  SELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "endorsements" ("review_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["review_id", 4], ["created_at", "2015-09-04 17:07:57.873969"], ["updated_at", "2015-09-04 17:07:57.873969"]]
+  [1m[36m (8.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/restaurants
+Completed 302 Found in 14ms (ActiveRecord: 9.1ms)
+
+
+Started GET "/restaurants" for ::1 at 2015-09-04 18:07:57 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "restaurants"
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 2]]
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 4]]
+  [1m[36m (1.6ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 7]]
+  [1m[35mReview Load (0.5ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 8]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 4]]
+  [1m[36m (0.2ms)[0m  [1mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 4]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1  [["review_id", 6]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "endorsements" WHERE "endorsements"."review_id" = $1[0m  [["review_id", 9]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 5]]
+  Rendered restaurants/index.html.haml within layouts/application (34.2ms)
+Completed 200 OK in 100ms (Views: 92.1ms | ActiveRecord: 7.0ms)

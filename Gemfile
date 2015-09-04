@@ -51,6 +51,8 @@ group :test do
   gem 'rspec-collection_matchers'
   gem 'shoulda'
   gem 'factory_girl_rails'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 end

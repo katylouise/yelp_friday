@@ -51,5 +51,14 @@ feature 'reviewing' do
     click_link 'Delete KFC'
     expect(page).not_to have_content 'So-so'
   end
+
+  scenario 'displays an average rating for all reviews' do
+    leave_review('So so', '3')
+    click_link 'Sign out'
+    userina = build(:userina)
+    sign_up(userina)
+    leave_review('Great', '5')
+    expect(page).to have_content('Average rating: 4')
+  end
 end
 

@@ -60,5 +60,10 @@ feature 'reviewing' do
     leave_review('Great', '5')
     expect(page).to have_content('Average rating: ★★★★☆')
   end
+
+  scenario 'displays N/A if no ratings' do
+    visit '/restaurants'
+    expect(page).to have_content('Average rating: N/A')
+  end
 end
 

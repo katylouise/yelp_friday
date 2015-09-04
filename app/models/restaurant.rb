@@ -14,4 +14,16 @@ class Restaurant < ActiveRecord::Base
     return 'N/A' if self.reviews.none?
     self.reviews.average(:rating)
   end
+
+  def black_stars
+    black_stars = ''
+    average_rating.to_i.times{ black_stars += "★" }
+    return black_stars
+  end
+
+  def white_stars
+    white_stars = ''
+    (5 - self.average_rating.to_i).times{ white_stars += "☆" }
+    return white_stars
+  end
 end

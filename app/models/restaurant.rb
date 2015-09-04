@@ -6,6 +6,9 @@ class Restaurant < ActiveRecord::Base
 
   validates :name, length: {minimum: 3}, uniqueness: true
 
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/restaurant-md.png"
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
   def build_review(review, user)
     self.reviews.new(thoughts: review[:thoughts], rating: review[:rating], user_id: user.id)
   end

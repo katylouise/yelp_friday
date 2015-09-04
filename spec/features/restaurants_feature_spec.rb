@@ -83,7 +83,7 @@ feature 'restaurants' do
       end
     end
 
-    context 'deletimg restaurants' do
+    context 'deleting restaurants' do
       before(:each) do
         user = build(:user)
         sign_up(user)
@@ -111,7 +111,7 @@ feature 'restaurants' do
     end
 
     context 'an invalid restaurant' do
-      it 'does not let you submit a name that is too short' do
+      scenario 'does not let you submit a name that is too short' do
         user = build(:user)
         sign_up(user)
         visit 'restaurants'
@@ -120,6 +120,32 @@ feature 'restaurants' do
         click_button 'Create Restaurant'
         expect(page).not_to have_css 'h2', text: 'kf'
         expect(page).to have_content 'error'
+      end
+    end
+
+    context 'uploading images' do
+      scenario 'user can add an image when creating a restaurant' do
+        user = build(:user)
+        sign_up(user)
+        visit 'restaurants'
+        click_link 'Add a restaurant'
+        fill_in 'Name', with: 'Carluccios'
+        attach_file "restaurant[image]", 'spec/asset_spec/images/image01.png'
+        click_button 'Create Restaurant'
+        expect(page).to have_selector('img')
+      end
+
+      scenario 'user can add an image when editing a restaurant' do
+        user = build(:user)
+        sign_up(user)
+        visit '/restaurants'
+        click_link 'Add a restaurant'
+        fill_in 'Name', with: 'KFC'
+        click_button 'Create Restaurant'
+        click_link 'Edit KFC'
+        attach_file "restaurant[image]", 'spec/asset_spec/images/image01.png'
+        click_button 'Update Restaurant'
+        expect(page).to have_selector('img')
       end
     end
 end
